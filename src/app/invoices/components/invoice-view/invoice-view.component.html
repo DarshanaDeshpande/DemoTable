@@ -1,0 +1,94 @@
+<div class="card">
+  <button mat-raised-button color="primary" [routerLink]="['/']">Go Back !!!</button>
+  <form [formGroup]="userForm" ngNativeValidate>
+    <fieldset style="border: none;">
+    <div class="mt-5 box">
+      <div class="form-row">
+        
+        <h1>INVOICE DETAILS </h1>
+
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Invoice Id : </label>
+          </div>
+          <div class="form-row " style="margin-top: -10px;">
+            <div class="col">
+              <input  type="text" formControlName="invoiceid" class="form-control" placeholder="Please enter your Invoice Id..." required autofocus>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Party Name :</label>
+          </div>
+          <div class="form-row " style="margin-top: -10px;">
+            <div class="col">
+              <input  type="text" formControlName="partyname" class="form-control" placeholder="Please enter your Party Name..." required autofocus>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-12">
+          <div class="form-group mt-4">
+            <label>Amount( &#x20B9;) :</label>
+          </div>
+          <div class="form-row" style="margin-top: -10px;">
+            <div class="col">
+              <input  type="text" formControlName="amount" class="form-control" placeholder="Please enter your Amount..." required autofocus>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="form-group mb-4">
+            <label>Invoice Date : </label>
+          </div>
+          <div class="form-row" style="margin-top: -10px;">
+            <div class="col">
+              <input  type="date" formControlName="invoicedate" class="form-control" placeholder="Please enter your Invoice Date..." required autofocus>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-row mt-4">
+          <div class="col-md-6" style="  align-items: center;justify-content: center;display: flex;">
+            <button type="submit" class="btn btn-primary"  (click)="addItem()" [disabled]="userForm.invalid" required>Add</button>&nbsp;&nbsp;
+            <!-- <button type="button" class="btn btn-primary" (click)="updateItem()">Update</button> -->
+          </div> 
+            <!-- <div class="col-md-6">
+              <button type="button" class="btn btn-primary" (click)="reset()">Reset</button>
+            </div> -->
+        </div>
+
+      </div>
+    </div>
+  </fieldset>
+  </form>
+  <div class="col-md-8 mt-4 mb-4">
+    <table id="table" class="table table-bordered table-editable">
+      <thead>
+        <tr>
+          <th>Invoice ID </th>
+          <th>Party Name</th>
+          <th>Amount( &#x20B9;) </th>
+          <th>Invoice Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listData">
+          <td><span contenteditable="true">{{item.invoiceid}}</span></td>
+          <td><span contenteditable="true">{{item.partyname}}</span></td>
+          <td><span contenteditable="true">{{item.amount}}</span></td>
+          <td><span contenteditable="true">{{item.invoicedate}}</span></td>
+          <td><button type="button" class="btn btn-primary" (click)="removeItem(item)">Remove</button>
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

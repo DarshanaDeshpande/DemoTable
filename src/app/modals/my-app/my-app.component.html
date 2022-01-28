@@ -1,0 +1,16 @@
+<!-- app.component.html -->
+<mat-form-field>
+    <input matInput [(ngModel)]="sendintake" placeholder="Enter value for Dialog">
+  </mat-form-field>
+
+  <table>
+      <tr *ngIf="dialogintake">Intake</tr>
+
+      <td>{{dialogintake}}</td>
+  </table>
+  <div >
+    <b>Value From Dialog</b>: {{dialogintake}}
+  </div>
+  <div>
+    <button mat-raised-button (click)="openDialog()">Open Dialog</button>
+  </div>

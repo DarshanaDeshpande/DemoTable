@@ -1,0 +1,15 @@
+<button mat-raised-button (click)="openDialog()">openDialog</button>
+<div class="main-content new-design">
+    <div class="card">
+        <div class="card-body" >
+            <dx-data-grid  [dataSource]="service.datas">
+                <dxi-column *ngFor="let item of columns" [fixed]="item.allowFixing" [dataField]="item.dataField" 
+                [caption]="item.title" [dataType]="item.type" [format]="item.format" >
+                </dxi-column>
+
+                <dxi-column caption="Action" cssClass="action-center" [allowExporting]="false" [fixed]="true" fixedPosition="right" [minWidth]="100" cellTemplate="<button>edit</button><button>delete</button>,"></dxi-column>
+            </dx-data-grid>
+
+        </div>
+    </div>
+</div>
